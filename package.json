@@ -2,10 +2,11 @@
   "name": "cybereng-server-clone",
   "version": "1.0.0",
   "description": "A mock of Cyber Engineering McGill's backend written in Node.js",
-  "main": "index.js",
+  "type": "module",
+  "main": "server.ts",
   "scripts": {
-    "start": "node server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsx src/server.ts",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,17 @@
   },
   "homepage": "https://github.com/yxL05/cybereng-server-clone#readme",
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "@eslint/js": "^9.31.0",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.1.0",
+    "eslint": "^9.31.0",
+    "globals": "^16.3.0",
+    "tsc": "^2.0.4",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
