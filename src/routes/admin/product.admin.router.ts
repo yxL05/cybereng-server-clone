@@ -48,6 +48,22 @@ router.post("/createProduct", validateRequestType(createProductSchema), async (r
 
   const response = await getProductById(id);
   res.status(201).json(toProductResponse(response))
-})
+});
+
+router.delete("/deleteProduct/:id", async (req, res) => {
+  const target = await getProductById(parseInt(req.params.id));
+  if (!target) return res.sendStatus(204);
+
+  // Eliminate FK dependencies
+  await Promise.all(target.descSpecList.map((descSpec) => {
+    return descSpec.destroy();
+  }));
+  await Promise.all(target.mediaUrlList.map((mediaUrl) => {
+    return mediaUrl.destroy();
+  }))
+
+  await target.destroy();
+  res.sendStatus(204);
+});
 
 export default router;

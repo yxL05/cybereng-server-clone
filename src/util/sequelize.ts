@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
     host: getEnv('DB_HOST'),
     port: parseInt(getEnv('DB_PORT')) || 3306,
     dialect: 'mysql',
-    logging: false
+    // logging: false
   }
 );
 
