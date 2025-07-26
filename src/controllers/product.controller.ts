@@ -17,3 +17,18 @@ export const getAllProducts = async (): Promise<ProductEager[]> => {
     ]
   }) as ProductEager[];
 }
+
+export const getProductById = async (id: number): Promise<ProductEager> => {
+  return await Product.findByPk(id, {
+    include: [
+      {
+        model: ProductSpec,
+        as: 'descSpecList'
+      },
+      {
+        model: MediaUrl,
+        as: 'mediaUrlList'
+      }
+    ]
+  }) as ProductEager;
+}

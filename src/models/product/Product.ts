@@ -5,6 +5,7 @@ import {
   InferCreationAttributes,
   CreationOptional,
   HasManyGetAssociationsMixin,
+  HasManySetAssociationsMixin,
 } from 'sequelize';
 import { sequelize } from '../../util/sequelize.js';
 import ProductSpec from './ProductSpec.js';
@@ -23,6 +24,9 @@ class Product extends Model<InferAttributes<Product>, InferCreationAttributes<Pr
   // Lazy loading methods
   declare getDescSpecList: HasManyGetAssociationsMixin<ProductSpec>;
   declare getMediaUrlList: HasManyGetAssociationsMixin<MediaUrl>;
+
+  declare setDescSpecList: HasManySetAssociationsMixin<ProductSpec, number>;
+  declare setMediaUrlList: HasManySetAssociationsMixin<MediaUrl, number>;
 }
 
 Product.init(
