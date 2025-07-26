@@ -5,7 +5,6 @@ const getEnv = (key: string): string => {
   if (!val) throw new Error(`.env: missing required ${key} key.`)
   return val;
 } 
-  
 
 export {
   getEnv

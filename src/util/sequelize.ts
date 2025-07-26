@@ -16,9 +16,9 @@ const sequelize = new Sequelize(
 );
 
 // Testing the connection
-(async () => {
+const testDbConnection = async () => {
   await sequelize.authenticate();
   console.log('MySQL connection established successfully.');
-})();
+};
 
-export default sequelize;
+export { sequelize, testDbConnection };
